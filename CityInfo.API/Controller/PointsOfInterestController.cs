@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using AutoMapper;
 
 namespace CityInfo.API.Controller
 {
@@ -14,13 +15,14 @@ namespace CityInfo.API.Controller
     public class PointsOfInterestController : ControllerBase
     {
         private readonly ILogger<PointsOfInterestController> _logger;
-        private readonly IMailService _mailService;
+        private readonly IMapper _mapper;
+        private readonly CityInfoContext _ctx;
 
-        public PointsOfInterestController(ILogger<PointsOfInterestController> logger,
-            IMailService mailservice)
+        public PointsOfInterestController(ILogger<PointsOfInterestController> logger, IMapper mapper)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _mailService = mailservice ?? throw new ArgumentNullException(nameof(logger));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
         }
 
         [HttpGet]

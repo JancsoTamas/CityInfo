@@ -31,7 +31,7 @@ namespace CityInfo.API
           options.AddDefaultPolicy(
               policy =>
               {
-                  policy.WithOrigins("http://localhost:57137").AllowAnyHeader().AllowAnyMethod();
+                  policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
               });
       });
 
